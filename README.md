@@ -1,14 +1,4 @@
-Optimizing tool selection...I'll help you find and understand the generator files in this project. Let me explore the generators directory to see what's available.  
 
-Read [](file:///c%3A/Users/LENOVO/Downloads/Dummy_data_generation/Data_for_learning-main/synthetic-data-gen/backend/app/generators)
-
-Read [](file:///c%3A/Users/LENOVO/Downloads/Dummy_data_generation/Data_for_learning-main/synthetic-data-gen/backend/generators)
-
-Read [](file:///c%3A/Users/LENOVO/Downloads/Dummy_data_generation/Data_for_learning-main/synthetic-data-gen/backend/app/generators/__init__.py)
-
-Perfect! Here are the **generator files** in your project that are ready to upload to GitHub:
-
-**Location:** `synthetic-data-gen/backend/app/generators/`
 
 **Generator Modules:**
 1. **base.py** - Base generator classes and registry system
