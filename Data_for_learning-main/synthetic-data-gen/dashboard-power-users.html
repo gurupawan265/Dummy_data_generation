@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SyntheticEngine - Workspace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Inter:wght@400;500;600&amp;family=Public+Sans:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#094cb2",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#3366cc",
+                        "surface": "#faf9fa",
+                        "on-surface": "#1b1c1d",
+                        "surface-container": "#efedee",
+                        "surface-container-low": "#f5f3f4",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif", "serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Public Sans", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+<nav class="bg-slate-50/80 backdrop-blur-md flex justify-between items-center w-full px-12 h-20 border-b border-gray-200 z-10">
+    <div class="flex items-center gap-8">
+        <span class="text-2xl font-serif italic font-black text-blue-700">SyntheticEngine</span>
+        <div class="hidden md:flex gap-6 items-center">
+            <a class="text-blue-700 font-bold border-b-2 border-blue-700 pb-1 px-3 py-2" href="#">Dashboard</a>
+            <a class="text-slate-500 font-sans hover:text-blue-600 px-3 py-2" href="#">Analytics</a>
+        </div>
+    </div>
+    <div class="flex items-center gap-6">
+        <button class="bg-surface-container-low border border-gray-300 text-gray-600 px-4 py-2 rounded-lg text-sm flex items-center gap-2 hover:bg-gray-100 transition">
+            <span class="material-symbols-outlined text-[18px]">search</span>
+            Search or Command
+            <span class="bg-white border border-gray-200 rounded px-1.5 py-0.5 text-xs font-mono ml-2">?K</span>
+        </button>
+        <button class="bg-blue-700 text-white px-6 py-2 rounded-lg font-bold shadow-md hover:bg-blue-800 transition">Generate Data</button>
+    </div>
+</nav>
+
+<div class="flex flex-1 overflow-hidden relative">
+    
+    <!-- Main Content Background (Blurred for Palette) -->
+    <main class="flex-1 flex overflow-hidden blur-[2px] opacity-70 pointer-events-none transition-all duration-300">
+        
+        <div class="flex-1 p-8 lg:p-12 overflow-y-auto flex flex-col">
+            <header class="mb-8">
+                <h1 class="font-headline text-4xl text-on-surface tracking-tight mb-2">Generation Pipeline</h1>
+                <p class="text-gray-500 max-w-2xl text-md">
+                    Seamless synthesis and flow. All connected endpoints receive updates automatically.
+                </p>
+            </header>
+
+            <div class="bg-surface-container-lowest border border-gray-200 rounded-xl p-6 shadow-sm mb-8 flex-1">
+                <h2 class="font-headline text-xl mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-blue-600">history</span>
+                    Live Pipeline Log
+                </h2>
+                <div class="font-mono text-sm bg-gray-900 text-green-400 p-4 rounded-lg h-full overflow-y-auto space-y-2 flex-1">
+                    <div class="flex gap-4">
+                        <span class="text-gray-500">14:22:00</span>
+                        <span>[Info] Generation start: Seed 482910, 50,000 rows.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Command Palette Overlay -->
+    <div class="absolute inset-0 z-50 flex justify-center items-start pt-[10vh] bg-gray-900/20 backdrop-blur-sm">
+        
+        <div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-2xl overflow-hidden border border-gray-200 flex flex-col animate-in fade-in slide-in-from-top-4 duration-200">
+            <!-- Search Input -->
+            <div class="relative flex items-center px-4 py-4 border-b border-gray-100">
+                <span class="material-symbols-outlined text-blue-600 mr-3">search</span>
+                <input type="text" class="w-full bg-transparent text-xl text-on-surface placeholder-gray-400 outline-none font-body" placeholder="Search commands, settings, or pipelines..." value="se" autofocus>
+                <span class="bg-surface-container text-gray-500 text-xs font-mono px-2 py-1 rounded">ESC to close</span>
+            </div>
+
+            <!-- Results List -->
+            <div class="max-h-[50vh] overflow-y-auto p-2">
+                
+                <div class="px-3 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider mb-1 mt-2">Settings</div>
+                
+                <!-- Result item 1 -->
+                <div class="flex items-center justify-between px-3 py-3 rounded-lg bg-blue-50 text-blue-900 cursor-pointer mb-1 border-l-2 border-blue-600">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-blue-600 text-[20px]">vpn_key</span>
+                        <div>
+                            <div class="font-semibold text-sm">Set API Key: Production App</div>
+                            <div class="text-xs text-blue-700/70 mt-0.5">Current: sk_prod_...8f9a <span class="mx-1">&bull;</span> Used 2 mins ago</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-blue-700">
+                        <span class="bg-blue-200/50 px-1.5 py-0.5 rounded font-mono">?</span>
+                    </div>
+                </div>
+
+                <!-- Result item 2 -->
+                <div class="flex items-center justify-between px-3 py-3 rounded-lg hover:bg-gray-100 text-on-surface cursor-pointer mb-1">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-gray-500 text-[20px]">database</span>
+                        <div>
+                            <div class="font-semibold text-sm">Data Retention Policy</div>
+                            <div class="text-xs text-gray-500 mt-0.5">Current: Keep for 30 days</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <span class="bg-gray-200 px-1.5 py-0.5 rounded font-mono">?</span>
+                        <span class="bg-gray-200 px-1.5 py-0.5 rounded font-mono">D</span>
+                    </div>
+                </div>
+
+                <!-- Result item 3 -->
+                <div class="flex items-center justify-between px-3 py-3 rounded-lg hover:bg-gray-100 text-on-surface cursor-pointer mb-1">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-gray-500 text-[20px]">123</span>
+                        <div>
+                            <div class="font-semibold text-sm">Set Default Seed</div>
+                            <div class="text-xs text-gray-500 mt-0.5">Current: 482910</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <span class="bg-gray-200 px-1.5 py-0.5 rounded font-mono">?</span>
+                        <span class="bg-gray-200 px-1.5 py-0.5 rounded font-mono">S</span>
+                    </div>
+                </div>
+                
+                <div class="px-3 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider mb-1 mt-4">Appearance</div>
+                
+                <!-- Result item 4 -->
+                <div class="flex items-center justify-between px-3 py-3 rounded-lg hover:bg-gray-100 text-on-surface cursor-pointer mb-1">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-gray-500 text-[20px]">dark_mode</span>
+                        <div>
+                            <div class="font-semibold text-sm">Toggle Theme</div>
+                            <div class="text-xs text-gray-500 mt-0.5">Current: Light</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-gray-400">
+                        <span class="bg-gray-200 px-1.5 py-0.5 rounded font-mono">?</span>
+                        <span class="bg-gray-200 px-1.5 py-0.5 rounded font-mono">?</span>
+                        <span class="bg-gray-200 px-1.5 py-0.5 rounded font-mono">T</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Details -->
+            <div class="bg-gray-50 border-t border-gray-100 px-4 py-3 flex text-xs text-gray-500 gap-6">
+                <div class="flex items-center gap-1.5">
+                    <span class="bg-gray-200 text-gray-600 px-1 py-0.5 rounded font-mono leading-none">&uarr;</span>
+                    <span class="bg-gray-200 text-gray-600 px-1 py-0.5 rounded font-mono leading-none">&darr;</span>
+                    Navigate
+                </div>
+                <div class="flex items-center gap-1.5">
+                    <span class="bg-gray-200 text-gray-600 px-1 py-0.5 rounded font-mono leading-none">?</span>
+                    Select
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

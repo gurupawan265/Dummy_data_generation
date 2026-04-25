@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+pydantic[email]
+faker
+numpy
+pandas
+openpyxl
+rstr
+python-multipart
+pytest
+httpx
+supabase
+python-dotenv
+google-genai
